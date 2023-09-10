@@ -1,0 +1,40 @@
+# @format
+
+version: '3'
+services:
+  db:
+    container_name: mysql
+    image: mysql
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=microservice
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+      # - persistent:/var/lib/mysql
+  php-app:
+    container_name: php
+    image: php:apache
+    ports:
+      - '3000:80'
+    volumes:
+      - ./php:/var/www/html
+  node-app:
+    container_name: node-app
+    image: node-app:1.0
+    working_dir: /usr/src/app
+    volumes:
+      - ./nodejs:/usr/src/app
+    ports:
+      - '3001:3001'
+    command: npm run start
+  golang-app:
+    container_name: golang-app
+    image: golang
+    working_dir: /go/src/app
+    volumes:
+      - ./go:/go/src/app
+    ports:
+      - '3002:3002'
+    command: go run .
