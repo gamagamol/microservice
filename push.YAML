@@ -1,0 +1,38 @@
+apiVersion: pipelinesascode.tekton.dev/v1alpha1
+kind: Repository
+metadata:
+  creationTimestamp: '2023-09-11T00:00:16Z'
+  generation: 1
+  managedFields:
+    - apiVersion: pipelinesascode.tekton.dev/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          .: {}
+          'f:git_provider':
+            .: {}
+            'f:secret':
+              .: {}
+              'f:key': {}
+              'f:name': {}
+            'f:webhook_secret':
+              .: {}
+              'f:key': {}
+              'f:name': {}
+          'f:url': {}
+      manager: Mozilla
+      operation: Update
+      time: '2023-09-11T00:00:16Z'
+  name: microservice
+  namespace: gamaariefsadya-dev
+  resourceVersion: '564113156'
+  uid: b5901cdd-c4eb-44f0-ad8b-eeb0d2fd96fc
+spec:
+  git_provider:
+    secret:
+      key: provider.token
+      name: microservice-token-s2gs6
+    webhook_secret:
+      key: webhook.secret
+      name: microservice-token-s2gs6
+  url: 'https://github.com/gamagamol/microservice'
